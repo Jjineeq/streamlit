@@ -19,7 +19,7 @@ st.set_page_config(page_title='날씨를 확인해보자',  layout='wide', page_
 t1, t2 = st.columns((0.07,1)) 
 
 t1.image('images/52.jpg', width = 120)
-t2.title("군침이 싹도노")
+t2.title("지점 날씨보기")
 t2.markdown("website : www.idalab.ac.kr")
 
 
