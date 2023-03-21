@@ -11,7 +11,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 
-st.set_page_config(page_title='날씨를 확인해보자',  layout='wide', page_icon=':ambulance:')
+st.set_page_config(page_title='날씨를 확인해보자',  layout='wide', page_icon='chart_with_upwards_trend')
 
 #this is the header
  
@@ -42,7 +42,7 @@ with st.spinner('Updating Report...'):
     fgdf = pd.read_csv('data/total_eda_real.csv')
     
     fgdf = fgdf[fgdf['지점명']==hosp] 
-    
+    fgdf = fgdf.sort_values(['지점명','일시'])
     fig = px.line(fgdf, x = '일시', y='기온', template = 'seaborn')
     
     fig.update_traces(marker_color='#264653')
@@ -56,7 +56,7 @@ with st.spinner('Updating Report...'):
     fcst = pd.read_csv('data/total_eda_real.csv')
     
     fcst = fcst[fcst['지점명']==hosp]
-    
+    fcst = fgdf.sort_values(['지점명','일시'])
     fig = px.line(fcst, x = '일시', y='습도', template = 'seaborn')
     
     fig.update_traces(marker_color='#7A9E9F')
